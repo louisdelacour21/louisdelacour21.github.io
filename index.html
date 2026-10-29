@@ -122,6 +122,13 @@ pre .c{color:var(--faint)}
 .ruled{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
 .ruled li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--rule)}
 .ruled li span:last-child{color:var(--muted);text-align:right}
+.role{padding:16px 0 12px;border-top:1px solid var(--rule)}
+.role header{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.role h3{font-size:15px;font-weight:500}
+.role header span{color:var(--faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+.role p{color:var(--muted);font-size:13px;margin:2px 0 10px}
+.role li{position:relative;padding-left:16px;max-width:76ch;margin-bottom:6px;text-wrap:pretty}
+.role li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:1px;background:var(--faint)}
 
 /* Rank. */
 .rank{font-family:var(--display);font-weight:500;font-size:56px;line-height:1;letter-spacing:-.01em}
@@ -205,7 +212,7 @@ dialog .foot{display:flex;gap:16px;padding:9px 16px;border-top:1px solid var(--r
   <a href="#more">Thesis and deals</a>
   <p>Profile</p>
   <a href="#experience">Experience</a>
-  <a href="#education">Education and skills</a>
+  <a href="#education">Education and certifications</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -239,7 +246,7 @@ dialog .foot{display:flex;gap:16px;padding:9px 16px;border-top:1px solid var(--r
       <div><dt>Role</dt><dd>Associate, Valuation</dd></div>
       <div><dt>Firm</dt><dd>Finalyse, Belgium</dd></div>
       <div><dt>Studying</dt><dd>MSc QFRM, Bocconi</dd></div>
-      <div><dt>Certification</dt><dd>FRM Part 1 candidate</dd></div>
+      <div><dt>Certification</dt><dd><a href="#education">FRM Part 1, BMC, QFI Python</a></dd></div>
       <div><dt>Languages</dt><dd>French, English, Mandarin</dd></div>
     </dl>
     <h2>Looking for</h2>
@@ -250,6 +257,7 @@ dialog .foot{display:flex;gap:16px;padding:9px 16px;border-top:1px solid var(--r
     </dl>
     <div class="actions">
       <a class="btn primary" href="mailto:louis.delacour@master.unibocconi.it">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/louis-delacour/">LinkedIn</a>
       <a class="btn" href="https://github.com/louisdelacour21">GitHub</a>
     </div>
   </aside>
@@ -445,15 +453,41 @@ options.bs(100, 100, 1.0, 0.2, 0.03, 0.0, "C")   <span class="c"># 9.41 and the 
   <div class="work">
     <div class="head"><h1 id="exp-h" tabindex="-1">Experience</h1></div>
     <p class="lede">Valuation now; audit and automation before it.</p>
-    <table>
-      <thead><tr><th>Role</th><th class="n">Period</th></tr></thead>
-      <tbody>
-        <tr><td>Associate, Valuation · Finalyse<small>Belgium. OTC derivatives and structured products: Monte Carlo pricers, calibration, Greeks, EMIR stress tests.</small></td><td class="n">2026 – now</td></tr>
-        <tr><td>Trading department · OPA Finance Club<small>Macro multi-asset analysis and a Python backtesting framework.</small></td><td class="n dim">2024 – 2025</td></tr>
-        <tr><td>Auditor and automation lead · SAVOURS<small>Sheffield. 30+ tier-one clients; 11 automations saving 7 hours a week; portfolio grown 42% in six months to 140 clients.</small></td><td class="n dim">2023 – 2024</td></tr>
-        <tr><td>Treasurer · Humanitarian missions<small>Raised €10–20k per mission; treasurer on two.</small></td><td class="n dim">2017 – 2022</td></tr>
-      </tbody>
-    </table>
+    <article class="role">
+      <header><h3>Associate, Valuation · Finalyse</h3><span>Jul 2026 – now</span></header>
+      <p>Belgium. OTC derivatives and structured products.</p>
+      <ul>
+        <li>Value OTC derivatives and structured products and analyse their risk with in-house Monte Carlo pricers built on Hull-White, lognormal and hybrid HW1F / lognormal rate models.</li>
+        <li>Write product specifications in Python and plug them into the Finalyse pricing infrastructure; calibrate volatilities, spread curves and simulation settings for each product and market scenario.</li>
+        <li>Automated the chain around the pricer: SQL data retrieval, pricing runs and reconciliation, plus VBA macros that build the reports and send them out.</li>
+        <li>Analyse sensitivities and risk drivers (Greeks); support buy-side clients on valuations and run EMIR stress tests for sell-side counterparties.</li>
+      </ul>
+    </article>
+    <article class="role">
+      <header><h3>Trading department · OPA Finance Club</h3><span>Sep 2024 – Sep 2025</span></header>
+      <p>Rouen. Student investment association.</p>
+      <ul>
+        <li>Ran macro-driven, multi-asset portfolio analysis with a risk-budgeting approach.</li>
+        <li>Built a systematic Python backtesting framework for those macro strategies.</li>
+      </ul>
+    </article>
+    <article class="role">
+      <header><h3>Auditor and automation / data manager · SAVOURS</h3><span>Aug 2023 – Apr 2024</span></header>
+      <p>Sheffield. Audit start-up; internship, then freelance.</p>
+      <ul>
+        <li>Carried out financial and operational audits for 30+ tier-one clients, among them Burger King, Pokawa and Subway, in the UK and France.</li>
+        <li>Grew the client portfolio by 42% in six months, to 140 clients under management.</li>
+        <li>Designed 11 automations in Python, VBA and SQL for the sales and portfolio teams, saving 7 hours a week.</li>
+      </ul>
+    </article>
+    <article class="role">
+      <header><h3>Treasurer · Humanitarian missions (CPCS, ESCSF, SCH)</h3><span>2017 – 2022</span></header>
+      <p>Volunteer work abroad.</p>
+      <ul>
+        <li>Raised €10–20k per mission through crowdfunding, corporate sponsorship and charity events.</li>
+        <li>Treasurer on two international missions: budgets and the team's financial operations.</li>
+      </ul>
+    </article>
   </div>
   <aside class="sheet" aria-label="In numbers">
     <h2>In numbers</h2>
@@ -469,15 +503,24 @@ options.bs(100, 100, 1.0, 0.2, 0.03, 0.0, "C")   <span class="c"># 9.41 and the 
 <!-- Education -->
 <section class="panel" id="education" aria-labelledby="edu-h">
   <div class="work">
-    <div class="head"><h1 id="edu-h" tabindex="-1">Education and skills</h1></div>
-    <p class="lede">Three schools in three countries, and the tools I use every day.</p>
+    <div class="head"><h1 id="edu-h" tabindex="-1">Education and certifications</h1></div>
+    <p class="lede">Three schools in three countries, the certifications, and the tools I use every day.</p>
     <table>
       <thead><tr><th>Programme</th><th class="n">Period</th></tr></thead>
       <tbody>
-        <tr><td>Bocconi · MSc Quantitative Finance and Risk Management<small>Milan.</small></td><td class="n">2025 – 2027</td></tr>
-        <tr><td>NEOMA · MiM and MSc Financial Markets and Risk Management<small>Rouen. GPA 3.86 / 4.</small></td><td class="n dim">2021 – 2025</td></tr>
-        <tr><td>Universität Regensburg · exchange<small>Financial econometrics and computer science, First Class Honour.</small></td><td class="n dim">2024</td></tr>
-        <tr><td>FRM Part 1 candidate<small>Part 2 in preparation.</small></td><td class="n dim">2026</td></tr>
+        <tr><td>Bocconi · MSc Quantitative Finance and Risk Management<small>Milan. Stochastic calculus, valuation theory, exotic and credit derivatives, structured products, FX, market and credit risk, model risk.</small></td><td class="n">2025 – 2027</td></tr>
+        <tr><td>NEOMA · MiM and MSc Financial Markets and Risk Management<small>Rouen. GPA 3.86 / 4. Credit and market risk, derivatives, Python, machine learning, big data, fintech and DeFi.</small></td><td class="n dim">2021 – 2025</td></tr>
+        <tr><td>Universität Regensburg · exchange<small>Financial econometrics and computer science, First Class Honour. Computational econometrics in Fortran, business analytics in Python.</small></td><td class="n dim">2024</td></tr>
+      </tbody>
+    </table>
+    <h2 id="certs">Certifications</h2>
+    <table>
+      <thead><tr><th>Certification</th><th class="n">Result</th></tr></thead>
+      <tbody>
+        <tr><td>FRM Part 1 · GARP<small>Financial Risk Manager, September 2026 session. Part 2 in preparation.</small></td><td class="n">Candidate</td></tr>
+        <tr><td>Bloomberg Market Concepts (BMC) · Bloomberg<small>Economics, currencies, fixed income and equities on the Terminal.</small></td><td class="n dim">Certified</td></tr>
+        <tr><td>Python · QFI<small>Python for quantitative finance.</small></td><td class="n dim">Certified</td></tr>
+        <tr><td>Trading simulation · Amplifyme<small>Markets simulation.</small></td><td class="n">Top 5%</td></tr>
       </tbody>
     </table>
     <h2>Tools and methods</h2>
@@ -487,7 +530,6 @@ options.bs(100, 100, 1.0, 0.2, 0.03, 0.0, "C")   <span class="c"># 9.41 and the 
       <li><span>Pricing</span><span>Monte Carlo, calibration, Greeks</span></li>
       <li><span>Risk</span><span>VaR, ES, stress tests, backtests</span></li>
       <li><span>Validation</span><span>SR 11-7, XVA</span></li>
-      <li><span>Certificates</span><span>BMC, QFI Python, Amplifyme top 5%</span></li>
     </ul>
   </div>
   <aside class="sheet" aria-label="Languages">
@@ -519,6 +561,7 @@ options.bs(100, 100, 1.0, 0.2, 0.03, 0.0, "C")   <span class="c"># 9.41 and the 
     <h2>Reach me</h2>
     <dl class="kv">
       <div><dt>Email</dt><dd><a href="mailto:louis.delacour@master.unibocconi.it">louis.delacour@master.unibocconi.it</a></dd></div>
+      <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/louis-delacour/">linkedin.com/in/louis-delacour</a></dd></div>
       <div><dt>Code</dt><dd><a href="https://github.com/louisdelacour21">github.com/louisdelacour21</a></dd></div>
       <div><dt>Package</dt><dd><a href="https://pypi.org/project/riskhub-engine/">riskhub-engine</a></dd></div>
       <div><dt>Demo</dt><dd><a href="https://neural-heston.streamlit.app/">neural-heston.streamlit.app</a></dd></div>
@@ -628,6 +671,7 @@ $('mail-form').addEventListener('submit', e => { e.preventDefault(); location.hr
     { label: 'Copy email address', hint: 'Action', run: () => copy('louis.delacour@master.unibocconi.it') },
     { label: 'Write an email', hint: 'Action', run: () => location.href = mailto('') },
     { label: 'Copy pip install riskhub-engine', hint: 'Action', run: () => copy('pip install riskhub-engine') },
+    { label: 'Open LinkedIn profile', hint: 'Link', run: open('https://www.linkedin.com/in/louis-delacour/') },
     { label: 'Open GitHub profile', hint: 'Link', run: open('https://github.com/louisdelacour21') },
     { label: 'Open Risk Hub app', hint: 'Link', run: open('https://louisdelacour21.github.io/risk-hub/app.html') },
     { label: 'Open neural Heston demo', hint: 'Link', run: open('https://neural-heston.streamlit.app/') },
