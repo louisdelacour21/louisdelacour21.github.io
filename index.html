@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Louis Delacour — Valuation quant</title>
 <meta name="description" content="Louis Delacour prices OTC derivatives and structured products, and builds risk tools that check their own numbers: Risk Hub, a validated neural Heston pricer, riskhub-engine on PyPI.">
+<meta name="theme-color" content="#111111">
 <link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -28,7 +30,7 @@ a{color:var(--accent);text-underline-offset:.2em;text-decoration-thickness:1px;t
 a:hover{text-decoration-thickness:2px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 ::selection{background:var(--accent);color:var(--accent-ink)}
-h1,h2,h3{font-weight:500;margin:0;letter-spacing:-0.01em;line-height:1.1}
+h1,h2,h3{font-weight:500;margin:0;letter-spacing:-0.01em;line-height:1.1;text-wrap:balance}
 p{margin:0}
 .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 12px;z-index:50}
 .skip:focus{left:8px}
@@ -51,7 +53,9 @@ p{margin:0}
 .below .lede{display:inline-block;max-width:30rem;background:rgba(17,17,17,.62);padding:20px 24px}
 .below p{font-size:var(--step-lead);line-height:1.3}
 .below .links{margin-top:16px;display:flex;gap:24px;flex-wrap:wrap;font-size:var(--step-small)}
-.below .links a{color:#fff}
+.below .links a,.pause{color:#fff}
+.pause{background:none;border:0;padding:0;font:inherit;text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px;cursor:pointer}
+.pause:hover{text-decoration-thickness:2px}
 .below .caption{margin-top:14px;font-size:var(--step-small);opacity:.8}
 
 /* ---------- the column ---------- */
@@ -220,7 +224,7 @@ footer .end{text-align:right}
 <div class="below" id="top">
   <div class="lede">
     <p>I price OTC derivatives and structured products, and I build risk tools that check their own numbers.</p>
-    <div class="links"><a href="#work">See what I built</a><a href="#var">Run a VaR in your browser</a></div>
+    <div class="links"><a href="#work">See what I built</a><a href="#var">Run a VaR in your browser</a><button type="button" class="pause" id="frames-toggle" hidden>Pause photos</button></div>
     <a class="btn" href="#contact">Get in touch</a>
     <p class="caption" id="frame-caption">Behind: Milan, where I study at Bocconi</p>
   </div>
@@ -232,8 +236,8 @@ footer .end{text-align:right}
     <h2 id="work-h" class="rise">Things I built and shipped</h2>
     <ul class="ledger">
       <li class="rise" style="--i:1">
-        <img class="thumb" src="assets/riskhub-app.png" width="1440" height="900" alt="Risk Hub's module list: market, credit, XVA, liquidity, funding, model and AI risk" loading="lazy">
-        <a class="row" href="https://louisdelacour21.github.io/risk-hub/app.html" data-img="assets/riskhub-app.png" data-alt="Risk Hub's module list">
+        <img class="thumb" src="assets/riskhub-app.png" width="1440" height="900" alt="Risk Hub’s module list: market, credit, XVA, liquidity, funding, model and AI risk" loading="lazy">
+        <a class="row" href="https://louisdelacour21.github.io/risk-hub/app.html" data-img="assets/riskhub-app.png" data-alt="Risk Hub’s module list">
           <span class="name">Risk Hub</span><span class="kind">Risk lab in the browser</span><span class="yr">2026</span>
           <span class="desc">115 risk modules, from VaR backtests and FRTB to CVA, LCR and AI model risk. Python is the source of truth and every figure is tested against an independent reference.</span>
         </a>
@@ -242,7 +246,7 @@ footer .end{text-align:right}
         <img class="thumb" src="assets/fig_smiles.png" width="1350" height="420" alt="Implied-volatility smiles: neural pricer against the Heston reference" loading="lazy">
         <a class="row" href="https://github.com/louisdelacour21/Neural-heston" data-img="assets/fig_smiles.png" data-alt="Neural pricer smiles against Heston">
           <span class="name">Neural Heston pricer</span><span class="kind">Differential ML, validated</span><span class="yr">2026</span>
-          <span class="desc">A network trained on prices and their derivatives. 0.8 bp mean implied-vol error, 26× faster than the reference, with an independent validation report: fit for purpose inside its training box. Live demo on Streamlit.</span>
+          <span class="desc">A network trained on prices and their derivatives. 0.8&nbsp;bp mean implied-vol error, 26× faster than the reference, with an independent validation report: fit for purpose inside its training box. Live demo on Streamlit.</span>
         </a>
       </li>
       <li class="rise" style="--i:3">
@@ -266,7 +270,7 @@ footer .end{text-align:right}
       </li>
       <li class="rise year-break" style="--i:6">
         <a class="row" href="#contact">
-          <span class="name">Structured products under uncertainty</span><span class="kind">Master's thesis, NEOMA</span><span class="yr">2025</span>
+          <span class="name">Structured products under uncertainty</span><span class="kind">Master’s thesis, NEOMA</span><span class="yr">2025</span>
           <span class="desc">How structured products behave and are priced when market parameters are uncertain.</span>
         </a>
       </li>
@@ -313,7 +317,7 @@ footer .end{text-align:right}
   <div class="col stats-wrap">
     <h2 id="fig-h" class="rise fig-h">The numbers I stand behind</h2>
     <dl class="figures">
-      <div class="rise" style="--i:1"><dt>0.8 bp</dt><dd>Mean implied-vol error of my neural Heston pricer, out of sample; 7.5 bp at the 99th percentile.</dd></div>
+      <div class="rise" style="--i:1"><dt>0.8 bp</dt><dd>Mean implied-vol error of my neural Heston pricer, out of sample; 7.5&nbsp;bp at the 99th percentile.</dd></div>
       <div class="rise" style="--i:2"><dt>26×</dt><dd>Faster than the reference pricer on 10,000 prices, on a laptop CPU.</dd></div>
       <div class="rise" style="--i:3"><dt>115</dt><dd>Risk modules in Risk Hub, each checked against an independent reference.</dd></div>
       <div class="rise" style="--i:4"><dt>33rd</dt><dd>Of 18,803 teams at IMC Prosperity 2026, and first in Italy.</dd></div>
@@ -331,9 +335,9 @@ footer .end{text-align:right}
 <section id="about" aria-labelledby="about-h">
   <div class="letter">
     <h2 id="about-h" class="rise">Why I build the checks</h2>
-    <p class="rise" style="--i:1">I'm an Associate in valuation at Finalyse, in Belgium, where I build Monte Carlo pricers for OTC derivatives and structured products: Hull-White, lognormal and hybrid models, their calibration and Greeks, and the SQL and VBA that keep the runs moving. Alongside, I'm finishing an MSc in Quantitative Finance and Risk Management at Bocconi.</p>
+    <p class="rise" style="--i:1">I’m an Associate in valuation at Finalyse, in Belgium, where I build Monte Carlo pricers for OTC derivatives and structured products: Hull-White, lognormal and hybrid models, their calibration and Greeks, and the SQL and VBA that keep the runs moving. Alongside, I’m finishing an MSc in Quantitative Finance and Risk Management at Bocconi.</p>
     <p class="rise" style="--i:2">What I enjoy most is the second look. A price is only useful if you know where it stops being right, so the projects on this page each come with their own test: Risk Hub compares every figure with an independent reference, and the neural pricer has a validation report that says plainly where it can be trusted.</p>
-    <p class="rise" style="--i:3">I'm looking for a role in model validation, XVA or valuation, or market risk. Asia first, and also Paris, London, Dublin or Amsterdam. I'm sitting FRM Part 1 and preparing Part 2.</p>
+    <p class="rise" style="--i:3">I’m looking for a role in model validation, XVA or valuation, or market risk. Asia first, and also Paris, London, Dublin or Amsterdam. I’m sitting FRM Part 1 and preparing Part 2.</p>
     <p class="sign rise" style="--i:4">Louis Delacour<span>Rouen, Sheffield, Regensburg, Milan, Brussels</span></p>
   </div>
 </section>
@@ -383,11 +387,11 @@ footer .end{text-align:right}
 
 <section id="contact" aria-labelledby="contact-h">
   <div class="col">
-    <h2 id="contact-h" class="rise">Let's talk</h2>
+    <h2 id="contact-h" class="rise">Let’s talk</h2>
     <p class="ask rise" style="--i:1">Hiring for model validation, XVA or market risk? Tell me about the role.</p>
     <form class="field rise" style="--i:2" id="mail-form" action="mailto:louis.delacour@master.unibocconi.it" method="get" enctype="text/plain">
       <label for="msg" class="skip">Your message</label>
-      <input id="msg" name="body" placeholder="A line about the role and the team" autocomplete="off">
+      <input id="msg" name="body" placeholder="A line about the role and the team…" autocomplete="off">
       <button class="go" type="submit" aria-label="Write the email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </form>
     <div class="group contact-rows rise" style="--i:3">
@@ -419,16 +423,24 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const imgs = [...document.querySelectorAll('.frames img')];
   const cap = document.getElementById('frame-caption');
   const captions = ['Behind: Milan, where I study at Bocconi', 'Behind: Rouen, where I studied at NEOMA', 'Behind: Regensburg, my exchange semester'];
+  const btn = document.getElementById('frames-toggle');
   if (reduce) return;
-  let i = 0, timer;
+  let i = 0, timer, paused = false;
   const step = () => {
     imgs[i].classList.remove('on');
     i = (i + 1) % imgs.length;
     imgs[i].classList.add('on');
     cap.textContent = captions[i];
   };
-  const start = () => { clearInterval(timer); timer = setInterval(step, 7000); };
+  const start = () => { clearInterval(timer); if (!paused) timer = setInterval(step, 7000); };
   document.addEventListener('visibilitychange', () => document.hidden ? clearInterval(timer) : start());
+  // WCAG 2.2.2: motion longer than 5 s needs a way to stop it.
+  btn.hidden = false;
+  btn.addEventListener('click', () => {
+    paused = !paused;
+    btn.textContent = paused ? 'Play photos' : 'Pause photos';
+    start();
+  });
   start();
 })();
 
