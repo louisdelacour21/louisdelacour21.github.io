@@ -205,6 +205,7 @@ dialog .foot{display:flex;gap:16px;padding:9px 16px;border-top:1px solid var(--r
   <a href="#desk">Overview</a>
   <p>Instruments</p>
   <a href="#heston">Neural Heston <small>0.8 bp</small></a>
+  <a href="#xva">XVA calculator <small>&lt; 3 s</small></a>
   <a href="#riskhub">Risk Hub <small>115</small></a>
   <a href="#engine">riskhub-engine <small>PyPI</small></a>
   <a href="#calibration">HW1F calibration</a>
@@ -227,6 +228,7 @@ dialog .foot{display:flex;gap:16px;padding:9px 16px;border-top:1px solid var(--r
       <thead><tr><th>Instrument</th><th>What it is</th><th class="n">Key figure</th><th class="n">Year</th></tr></thead>
       <tbody>
         <tr class="go"><td><a href="#heston">Neural Heston pricer</a></td><td class="dim">Differential ML pricer with an independent validation report</td><td class="n">0.8&nbsp;bp error</td><td class="n dim">2026</td></tr>
+        <tr class="go"><td><a href="#xva">XVA calculator</a></td><td class="dim">CVA, DVA and FVA of a EUR swap netting set under Hull-White, with pre-trade pricing</td><td class="n">&lt;&nbsp;3&nbsp;s pre-trade</td><td class="n dim">2026</td></tr>
         <tr class="go"><td><a href="#riskhub">Risk Hub</a></td><td class="dim">Risk lab: VaR backtests, FRTB, CVA, LCR, AI model risk</td><td class="n">115 modules</td><td class="n dim">2026</td></tr>
         <tr class="go"><td><a href="#engine">riskhub-engine</a></td><td class="dim">The engine behind Risk Hub, as a Python package</td><td class="n">on PyPI</td><td class="n dim">2026</td></tr>
         <tr class="go"><td><a href="#calibration">Hybrid HW1F / lognormal</a></td><td class="dim">Calibration for long-dated structured rate products</td><td class="n">Bocconi</td><td class="n dim">2026</td></tr>
@@ -295,6 +297,35 @@ dialog .foot{display:flex;gap:16px;padding:9px 16px;border-top:1px solid var(--r
     <div class="actions">
       <a class="btn primary" href="https://neural-heston.streamlit.app/">Live demo</a>
       <a class="btn" href="https://github.com/louisdelacour21/Neural-heston">Code and report</a>
+    </div>
+  </aside>
+</section>
+
+<!-- XVA -->
+<section class="panel" id="xva" aria-labelledby="xva-h">
+  <div class="work">
+    <div class="head"><h1 id="xva-h" tabindex="-1">XVA calculator, from CVA to the cost of the next trade</h1><span class="yr">2026</span></div>
+    <p class="lede">A Monte Carlo engine for a netting set of EUR swaps under Hull-White one-factor: CVA, DVA and FVA, a CSA with threshold, minimum transfer and margin period of risk, and the incremental XVA of a new swap priced on the paths already simulated. Its validation report states where the one-factor model breaks.</p>
+    <h2>One swap against the closed form</h2>
+    <figure class="fig">
+      <img class="inv" src="assets/fig_xva_ee.png" width="1040" height="520" alt="Expected exposure of a single swap from the Monte Carlo engine against the closed-form swaption price, by date" loading="lazy">
+      <figcaption>Expected exposure of a single swap against Jamshidian’s swaption formula: 0.5&nbsp;bp of notional at worst, inside the Monte Carlo error of 0.9&nbsp;bp (40,000 paths).</figcaption>
+    </figure>
+  </div>
+  <aside class="sheet" aria-label="Validation sheet">
+    <h2>Validation sheet · XVA engine</h2>
+    <dl class="kv">
+      <div><dt>EE vs swaption</dt><dd class="big">0.5&nbsp;bp</dd></div>
+      <div><dt>Pre-trade XVA</dt><dd class="big">&lt;&nbsp;3&nbsp;s</dd></div>
+      <div><dt>CVA cut by the CSA</dt><dd>−32&nbsp;% (660 → 446&nbsp;k€)</dd></div>
+      <div><dt>Model</dt><dd>Hull-White 1F, swaption-calibrated</dd></div>
+      <div><dt>Backtest</dt><dd>Point-in-time, 22 years of ECB curves</dd></div>
+      <div><dt>Sensitivities</dt><dd>Common random numbers, SA-CCR, BA-CVA</dd></div>
+      <div><dt>Verdict</dt><dd>One factor misses curve steepening</dd></div>
+    </dl>
+    <div class="actions">
+      <a class="btn primary" href="https://xva-calculator-aqs3w2xdkgad2z9vhmndxt.streamlit.app/">Live demo</a>
+      <a class="btn" href="https://github.com/louisdelacour21/xva-calculator">Code and report</a>
     </div>
   </aside>
 </section>
@@ -675,6 +706,7 @@ $('mail-form').addEventListener('submit', e => { e.preventDefault(); location.hr
     { label: 'Open GitHub profile', hint: 'Link', run: open('https://github.com/louisdelacour21') },
     { label: 'Open Risk Hub app', hint: 'Link', run: open('https://louisdelacour21.github.io/risk-hub/app.html') },
     { label: 'Open neural Heston demo', hint: 'Link', run: open('https://neural-heston.streamlit.app/') },
+    { label: 'Open XVA calculator demo', hint: 'Link', run: open('https://xva-calculator-aqs3w2xdkgad2z9vhmndxt.streamlit.app/') },
     { label: 'Open riskhub-engine on PyPI', hint: 'Link', run: open('https://pypi.org/project/riskhub-engine/') }
   ];
   let shown = [], sel = 0;
